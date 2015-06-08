@@ -1,7 +1,6 @@
 import com.mongodb.*;
 
 import java.net.UnknownHostException;
-import java.util.List;
 
 public class MongoDBHelloWorld {
     public static void main(String[] args) {
@@ -23,8 +22,8 @@ public class MongoDBHelloWorld {
             //
             DBCollection collection = database.getCollection("vilains");
 
-            Vilain landYves = new Vilain("Land","Yves","vol de saucisson");
-            collection.insert((List<DBObject>) landYves);
+            //Vilain landYves = new Vilain("Land","Yves","vol de saucisson");
+            //collection.insert((List<DBObject>) landYves);
 
             //
             // Gets a single document / object from this collection.
