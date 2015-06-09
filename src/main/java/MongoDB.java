@@ -37,6 +37,9 @@ public class MongoDB {
     private DB database; // Gets the fichiersPoliceJudiciaire from the MongoDB instance.
     private DBCollection collection; // Gets the persons collections from the database.
 
+    /*
+    Classe MongoDB : Servira à tout ce qui concerne la base de données (ajout, recherche de vilains)
+     */
     public MongoDB() {
         try {
             client = new MongoClient(new ServerAddress("localhost", 27017));
@@ -88,4 +91,3 @@ public class MongoDB {
         }
     }
 }
-

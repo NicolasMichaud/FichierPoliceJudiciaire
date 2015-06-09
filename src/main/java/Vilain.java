@@ -3,6 +3,10 @@ import java.util.ArrayList;
 /**
  * Created by Nicolas on 06/06/2015.
  */
+
+/*
+Classe Vilain : Servira à la définition de chaque vilain
+ */
 public class Vilain {
     //private String id;
     private String nom;
