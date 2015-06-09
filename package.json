@@ -1,0 +1,22 @@
+{
+  "name": "fichier-police-judiciaire",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicolasMichaud/FichierPoliceJudiciaire.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicolasMichaud/FichierPoliceJudiciaire/issues"
+  },
+  "homepage": "https://github.com/NicolasMichaud/FichierPoliceJudiciaire#readme",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  }
+}
