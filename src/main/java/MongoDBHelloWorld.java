@@ -27,20 +27,21 @@ public class MongoDBHelloWorld {
             Vilain jeanVal = new Vilain("Valjean","Jean","vol du soleil");
             //collection.insert((List<DBObject>) landYves);
             Gson gson = new Gson();
-            DBObject obj = new BasicDBObject();
-            obj = (DBObject) JSON.parse(gson.toJson(jeanVal));
+            DBObject obj = (DBObject) JSON.parse(gson.toJson(jeanVal));
             //collection.save(new BasicDBObject(gson.toJson(landYves)));
             collection.save(obj);
 
             //
             // Gets a single document / object from this collection.
             //
-            DBObject document = collection.findOne();
+            DBObject query = new BasicDBObject();
+            query.put("nom", "Land");
+            DBCursor document = collection.find(query);
             //DBObject document = collection.find(gson.fromJson({'nom': jeanVal.getNom()}));
             //
             // Prints out the document.
             //
-            System.out.println(document);
+            System.out.println(document.next());
         } catch (UnknownHostException e) {
             e.printStackTrace();
         }
