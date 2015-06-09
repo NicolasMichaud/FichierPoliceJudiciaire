@@ -1,4 +1,6 @@
+import com.google.gson.Gson;
 import com.mongodb.*;
+import com.mongodb.util.JSON;
 
 import java.net.UnknownHostException;
 
@@ -22,14 +24,19 @@ public class MongoDBHelloWorld {
             //
             DBCollection collection = database.getCollection("vilains");
 
-            //Vilain landYves = new Vilain("Land","Yves","vol de saucisson");
+            Vilain jeanVal = new Vilain("Valjean","Jean","vol du soleil");
             //collection.insert((List<DBObject>) landYves);
+            Gson gson = new Gson();
+            DBObject obj = new BasicDBObject();
+            obj = (DBObject) JSON.parse(gson.toJson(jeanVal));
+            //collection.save(new BasicDBObject(gson.toJson(landYves)));
+            collection.save(obj);
 
             //
             // Gets a single document / object from this collection.
             //
             DBObject document = collection.findOne();
-
+            //DBObject document = collection.find(gson.fromJson({'nom': jeanVal.getNom()}));
             //
             // Prints out the document.
             //

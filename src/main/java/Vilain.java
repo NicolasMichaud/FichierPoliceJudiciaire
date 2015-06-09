@@ -52,4 +52,19 @@ public class Vilain {
     public void setDelit(String delit) {
         this.delit = delit;
     }
+
+    public String getPrenom() {
+        return prenom;
+    }
+    public String getNom() {
+        return nom;
+    }
+
+    public String getDelit() {
+        return delit;
+    }
+
+    public ArrayList<String> getListe() {
+        return liste;
+    }
 }
