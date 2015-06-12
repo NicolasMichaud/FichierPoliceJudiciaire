@@ -4,9 +4,9 @@ import static spark.SparkBase.staticFileLocation;
 
 public class HelloWorld {
     public static void main(String[] args) {
-        staticFileLocation("/"); // Static files
+        staticFileLocation("resources/main/"); // Static files
         get("/", (req, res) -> {
-            //return req.params("ressources/main/angular/index.html");
+            //return req.params("ressources/main/index.html");
             return "<a href=http://localhost:63342/FichierPoliceJudiciaire/build/resources/main/index.html>index.html<a>";
         });
 
