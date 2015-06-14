@@ -4,7 +4,7 @@
     <script src="../angular/angular.js"></script>
     <script src="../js/controllers.js"></script>
 </head>
-<body ng-controller="PhoneListCtrl">
+<!--body ng-controller="PhoneListCtrl">
 
 <ul>
     <li ng-repeat="phone in phones">
@@ -13,5 +13,17 @@
     </li>
 </ul>
 
+</body-->
+
+<body ng-controller="listeDeVilains">
+    <h1> Voici quelques vilains:</h1>
+    <ul>
+        <li ng-repeat="vilain in vilains">
+            <span>{{vilain.prenom}} <b>{{vilain.nom}}</b></span>
+            <p>{{vilain.delit}}</p>
+        </li>
+    </ul>
 </body>
+
+
 </html>
