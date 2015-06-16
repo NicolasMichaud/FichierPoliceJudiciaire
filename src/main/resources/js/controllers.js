@@ -14,7 +14,7 @@ fichierPoliceJudiciaireApp.controller('listeDeVilains', function ($scope) {
     ];
     $scope.valider = function() {
         //console.log("valider()",$scope.nom);
-        var mongoose = require('mongoose');
+        var mongoose = require('node_modules/mongoose');
         mongoose.connect('mongodb://localhost/fichiersPoliceJudiciaire');
         var persoSchema=mongoose.Schema({
             nom:{type:String},

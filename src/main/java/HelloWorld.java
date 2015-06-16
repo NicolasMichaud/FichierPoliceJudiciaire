@@ -1,10 +1,17 @@
-import static spark.Spark.get;
 import static spark.SparkBase.staticFileLocation;
+import static spark.Spark.*;
 
 
 public class HelloWorld {
     public static void main(String[] args) {
-        staticFileLocation("resources/main/app/"); // Static files
+        MongoDB mongo = new MongoDB();
+
+        staticFileLocation("/resources/main/"); // Static files
+        get("/createUser", (req, res) -> {
+            mongo.ajouter(req.params("nom"),req.params("prenom"),req.params("delit"));
+            return 200;
+        });
+        /*
         get("/", (req, res) -> {
             //return req.params("ressources/main/index.html");
             //return "<a href=http://localhost:63342/FichierPoliceJudiciaire/build/resources/main/index.html>index.html<a>";
