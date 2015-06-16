@@ -3,18 +3,31 @@
  */
 var fichierPoliceJudiciaireApp = angular.module('fichierPoliceJudiciaireApp', []);
 
-fichierPoliceJudiciaireApp.controller('listeDeVilains', function ($scope) {
+fichierPoliceJudiciaireApp.controller('listeDeVilains', function ($scope, $http) {
     $scope.vilains = [
         {'nom': 'Le Papillon',
             'prenom': 'Léon',
             'delit': 'A volé le cocon de Camille La Chenille'},
         {'nom': 'La chenille',
             'prenom': 'Camille',
-            'delit': 'A été trop lente à se développer (violation de l\'article 5 du code des insecte paragraphe 227 alinéa 4'}
+            'delit': 'A été trop lente à se développer (violation de l\'article 5 du code des insecte paragraphe 227 alinéa 4)'}
     ];
     $scope.valider = function() {
         //console.log("valider()",$scope.nom);
 
+        $http.post('/createUser',  { nom:$scope.nom,
+                                    prenom:$scope.prenom,
+                                    delit:$scope.delit} ).
+            success(function(data, status, headers, config) {
+                // this callback will be called asynchronously
+                // when the response is available
+                alert("enregistrement effectué!");
+            }).
+            error(function(data, status, headers, config) {
+                // called asynchronously if an error occurs
+                // or server returns response with an error status.
+                alert("enregistrement echoué!");
+            });
     }
 });
 

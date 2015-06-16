@@ -55,16 +55,17 @@ public class MongoDB {
     public void ajouter(String nom, String prenom, String delit) {
         //try {
             Vilain vilain = new Vilain(nom,prenom,delit);
-            //collection.insert((List<DBObject>) landYves);
-            Gson gson = new Gson();
-            DBObject obj = (DBObject) JSON.parse(gson.toJson(vilain));
-            //collection.save(new BasicDBObject(gson.toJson(landYves)));
-            collection.save(obj);
+            this.ajouter(vilain);
         /*} catch (UnknownHostException e) {
             e.printStackTrace();
         }*/
     }
 
+    public void ajouter(Vilain vilain) {
+        Gson gson = new Gson();
+        DBObject obj = (DBObject) JSON.parse(gson.toJson(vilain));
+        collection.save(obj);
+    }
     /*
     rechercher(parametre, valeur) : Permet la recherche d'un vilain dans la base de données
         l'utilisateur donne le paramètre qu'il recherche (nom, prenom ou delit) et la valeur de celui ci

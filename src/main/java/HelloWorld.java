@@ -1,5 +1,7 @@
+import com.google.gson.Gson;
+
+import static spark.Spark.post;
 import static spark.SparkBase.staticFileLocation;
-import static spark.Spark.*;
 
 
 public class HelloWorld {
@@ -7,8 +9,12 @@ public class HelloWorld {
         MongoDB mongo = new MongoDB();
 
         staticFileLocation("/resources/main/"); // Static files
-        get("/createUser", (req, res) -> {
-            mongo.ajouter(req.params("nom"),req.params("prenom"),req.params("delit"));
+        post("/createUser", (req, res) -> {
+            Gson gson = new Gson();
+
+            Vilain vilain = gson.fromJson(req.body(), Vilain.class);
+
+            mongo.ajouter(vilain);
             return 200;
         });
         /*
