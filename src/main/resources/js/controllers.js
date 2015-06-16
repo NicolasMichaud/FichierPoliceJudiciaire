@@ -14,27 +14,7 @@ fichierPoliceJudiciaireApp.controller('listeDeVilains', function ($scope) {
     ];
     $scope.valider = function() {
         //console.log("valider()",$scope.nom);
-        var mongoose = require('node_modules/mongoose');
-        mongoose.connect('mongodb://localhost/fichiersPoliceJudiciaire');
-        var persoSchema=mongoose.Schema({
-            nom:{type:String},
-            prenom:{type:String},
-            delit:{type:String}
-        });
-        var Vilains=mongoose.model('Vilains',persoSchema);
-        var nouveauPerso=new Vilains({
-            nom:$scope.nom,
-            prenom:$scope.prenom,
-            delit:$scope.delit
-        });
-        nouveauPerso.save(function(err) {
-            if (err) {
-                console.log("erreur d'écriture")
-            }
-            else {
-                console.log("enregistrement effectué");
-            }
-        });
+
     }
 });
 
