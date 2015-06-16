@@ -16,13 +16,24 @@
 </body-->
 
 <body ng-controller="listeDeVilains">
-    <h1> Voici quelques vilains:</h1>
-    <ul>
-        <li ng-repeat="vilain in vilains">
-            <span>{{vilain.prenom}} <b>{{vilain.nom}}</b></span>
-            <p>{{vilain.delit}}</p>
-        </li>
-    </ul>
+
+Search: <input ng-model="query">
+
+<h1> Voici quelques vilains :</h1>
+
+<ul>
+    <li ng-repeat="vilain in vilains | filter:query">
+        <span>{{vilain.prenom}} <b>{{vilain.nom}}</b></span>
+        <p>{{vilain.delit}}</p>
+    </li>
+</ul>
+
+Nom :    <input ng-model="nom"><br>
+Prenom : <input ng-model="prenom"><br>
+Delit :  <input ng-model="delit"><br>
+<button ng-click="valider()" >Valider</button>
+
+
 </body>
 
 
